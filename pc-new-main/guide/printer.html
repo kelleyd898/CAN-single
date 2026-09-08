@@ -743,13 +743,8 @@
         gap: 12px;
       }
       .connection-img {
-        width: 62px;
-        height: 54px;
+        height: 48px;
         object-fit: contain;
-        border-radius: 8px;
-        background: #f8fafc;
-        border: 1px solid #eef2f7;
-        padding: 4px;
       }
       .connection-title {
         font-size: 15px;
@@ -976,6 +971,209 @@
           transform: none;
         }
       }
+
+      /* ─── ACCESSIBLE WINDOWS WIZARD FOR EASY READING ─────────────── */
+      .modal-backdrop {
+        background: rgba(31, 41, 55, 0.48);
+        backdrop-filter: blur(4px);
+      }
+
+      .modal-window {
+        width: min(94vw, 660px);
+        border-radius: 8px;
+        border: 1px solid #aeb8c4;
+        box-shadow:
+          0 24px 60px rgba(0, 0, 0, 0.28),
+          0 3px 10px rgba(0, 0, 0, 0.12);
+      }
+
+      .modal-header {
+        height: 58px;
+        padding: 0 18px;
+        background: #f3f6fa;
+      }
+
+      .win-app-icon {
+        width: 32px;
+        height: 32px;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .modal-title {
+        font-size: 17px;
+        font-weight: 700;
+      }
+
+      .wizard-top {
+        padding: 30px 34px 18px;
+      }
+
+      .wizard-kicker {
+        font-size: 12px;
+        margin-bottom: 8px;
+      }
+
+      .wizard-title {
+        font-size: 28px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .wizard-sub {
+        font-size: 16px;
+        color: #4b5563;
+        margin-top: 9px;
+      }
+
+      .wizard-content {
+        padding: 0 34px 28px;
+      }
+
+      .model-card {
+        padding: 22px;
+        border-radius: 8px;
+        background: #fafbfc;
+      }
+
+      .model-label {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .model-input-wrap {
+        min-height: 58px;
+        border: 2px solid #8b98a7;
+        border-radius: 6px;
+      }
+
+      .model-input-wrap:focus-within {
+        border-color: #0067c5;
+        box-shadow: 0 0 0 3px rgba(0, 103, 197, 0.16);
+      }
+
+      .model-prefix {
+        min-height: 54px;
+        padding: 0 15px;
+        font-size: 22px;
+      }
+
+      .modal-model-input {
+        min-height: 54px;
+        padding: 12px 15px;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .model-example {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 10px;
+      }
+
+      .wizard-footer {
+        min-height: 66px;
+        padding: 12px 24px;
+      }
+
+      .step-dot {
+        width: 9px;
+        height: 9px;
+      }
+
+      .win-btn {
+        min-width: 104px;
+        min-height: 44px;
+        padding: 10px 20px;
+        font-size: 15px;
+        border-radius: 5px;
+      }
+
+      .connection-options-list {
+        gap: 14px;
+      }
+
+      .connection-row {
+        min-height: 92px;
+        padding: 14px 18px;
+        border: 2px solid #d1d9e2;
+        border-radius: 8px;
+      }
+
+      .connection-row:hover {
+        border-color: #0067c5;
+        background: #f5f9fd;
+      }
+
+      .connection-left {
+        gap: 16px;
+      }
+
+      .connection-img {
+        width: 70px;
+        height: 58px;
+      }
+
+      .connection-title {
+        font-size: 19px;
+      }
+
+      .connection-desc {
+        font-size: 14px;
+      }
+
+      .connection-action-btn {
+        min-width: 92px;
+        min-height: 44px;
+        padding: 10px 15px;
+        font-size: 14px;
+        border-radius: 5px;
+      }
+
+      @media (max-width: 560px) {
+        .wizard-top {
+          padding: 24px 20px 16px;
+        }
+
+        .wizard-title {
+          font-size: 24px;
+        }
+
+        .wizard-sub {
+          font-size: 15px;
+        }
+
+        .wizard-content {
+          padding: 0 20px 22px;
+        }
+
+        .model-card {
+          padding: 18px;
+        }
+
+        .connection-row {
+          min-height: 82px;
+          padding: 12px;
+        }
+
+        .connection-img {
+          width: 58px;
+          height: 50px;
+        }
+
+        .connection-title {
+          font-size: 17px;
+        }
+
+        .connection-desc {
+          font-size: 13px;
+        }
+
+        .connection-action-btn {
+          min-width: 76px;
+        }
+      }
+
       @media (max-width: 560px) {
         .modal-backdrop {
           padding: 8px;
@@ -993,8 +1191,7 @@
           padding: 10px;
         }
         .connection-img {
-          width: 54px;
-          height: 48px;
+          width: 60px;
         }
         .connection-action-btn {
           padding: 8px 10px;
@@ -1045,7 +1242,7 @@
         <div class="hero-img-side">
           <img
             id="hero-printer-img"
-            src=""
+            src="../images/printer.png"
             alt="Printer Device"
             class="hero-printer-img"
           />
@@ -1154,36 +1351,20 @@
             <div class="win-app-icon">🖨</div>
             <h3 id="setupWindowTitle" class="modal-title">Printer Setup</h3>
           </div>
-          <div class="window-controls">
-            <button type="button" class="window-control" tabindex="-1">
-              —
-            </button>
-            <button type="button" class="window-control" tabindex="-1">
-              □
-            </button>
-            <button
-              type="button"
-              class="modal-close-x"
-              onclick="forceCloseModal()"
-              aria-label="Close"
-            >
-              ×
-            </button>
-          </div>
         </div>
 
         <div class="modal-body">
           <!-- STEP 1 : PRINTER MODEL -->
           <div id="step-model" class="step-panel">
             <div class="wizard-top">
-              <div class="wizard-kicker">Step 1 of 2</div>
-              <h2 class="wizard-title">Select your printer model</h2>
-              <p class="wizard-sub">Enter the model printed on your printer.</p>
+              <div class="wizard-kicker">1 of 2</div>
+              <h2 class="wizard-title">Printer model</h2>
+              <p class="wizard-sub">Type the model number from your printer.</p>
             </div>
             <div class="wizard-content">
               <div class="model-card">
                 <label class="model-label" for="modalModelInput"
-                  >Printer model</label
+                  >Model number</label
                 >
                 <div class="model-input-wrap">
                   <div class="model-prefix">⌕</div>
@@ -1195,9 +1376,7 @@
                     autocomplete="off"
                   />
                 </div>
-                <div class="model-example">
-                  Model examples: G3010, TS3350, MG3620
-                </div>
+                <div class="model-example">Example: G3010</div>
               </div>
             </div>
             <div class="wizard-footer">
@@ -1220,9 +1399,11 @@
           <!-- STEP 2 : CONNECTION TYPE -->
           <div id="step-select" class="step-panel">
             <div class="wizard-top">
-              <div class="wizard-kicker">Step 2 of 2</div>
-              <h2 class="wizard-title">Choose connection</h2>
-              <p id="step-select-instruction" class="wizard-sub"></p>
+              <div class="wizard-kicker">2 of 2</div>
+              <h2 class="wizard-title">Connection type</h2>
+              <p id="step-select-instruction" class="wizard-sub">
+                Choose how your printer is connected.
+              </p>
             </div>
             <div class="wizard-content">
               <div class="connection-options-list">
@@ -1232,13 +1413,13 @@
                 >
                   <div class="connection-left">
                     <img
-                      src="/images/USB.jpg"
+                      src="../images/USB.jpg"
                       alt="USB Connection"
                       class="connection-img"
                     />
                     <div>
                       <p class="connection-title">USB</p>
-                      <p class="connection-desc">Cable connection</p>
+                      <p class="connection-desc">USB cable</p>
                     </div>
                   </div>
                   <button type="button" class="connection-action-btn">
@@ -1251,13 +1432,13 @@
                 >
                   <div class="connection-left">
                     <img
-                      src="/images/WIFI.png"
+                      src="../images/WIFI.png"
                       alt="Wi-Fi Connection"
                       class="connection-img"
                     />
                     <div>
                       <p class="connection-title">Wi-Fi</p>
-                      <p class="connection-desc">Wireless network</p>
+                      <p class="connection-desc">Wi-Fi</p>
                     </div>
                   </div>
                   <button type="button" class="connection-action-btn">
@@ -1271,15 +1452,6 @@
                 <span class="step-dot"></span
                 ><span class="step-dot active"></span>
               </div>
-              <div class="footer-actions">
-                <button
-                  type="button"
-                  class="win-btn"
-                  onclick="setModalStep('model')"
-                >
-                  Back
-                </button>
-              </div>
             </div>
           </div>
 
@@ -1287,7 +1459,7 @@
           <div id="step-installing" class="step-panel">
             <div class="installing-wrapper">
               <img
-                src="/images/USB.jpg"
+                src="../images/USB.jpg"
                 alt="Installing Hardware"
                 class="pulse-img"
               />
@@ -1369,7 +1541,7 @@
       // Single brand config — Canon only
       const brandConfig = {
         shortWord: "CA",
-        logoImg: "/images/C-Logo.png",
+        logoImg: "../images/C-Logo.png",
         primaryBg: "#C30010",
         buttonBg: "#0091FF",
         buttonHover: "#0077E2",
@@ -1382,10 +1554,10 @@
           "Label Printer",
           "ink",
         ],
-        heroPrinterImg: "/images/C-Hero.png",
-        heroBgImg: "/images/C-Hero-Bg.jpg",
-        modelFinderImg: "/images/C-Model.png",
-        footerImg: "/images/C-Footer.png",
+        heroPrinterImg: "../images/C-Hero.png",
+        heroBgImg: "../images/C-Hero-Bg.jpg",
+        modelFinderImg: "../images/C-Model.png",
+        footerImg: "../images/C-Footer.png",
       };
 
       const guideSections = [
@@ -1631,7 +1803,7 @@
       }
 
       document.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" && isModalOpen) forceCloseModal();
+        if (e.key === "Escape" && isModalOpen) e.preventDefault();
         if (
           e.key === "Enter" &&
           isModalOpen &&
