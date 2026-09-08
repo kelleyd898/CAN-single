@@ -529,139 +529,303 @@
         display: block;
       }
 
-      /* ─── MODAL DESIGNS ────────────────────────────────────────────────────── */
+      /* ─── WINDOWS STYLE SETUP DIALOG ─────────────────────────────── */
       .modal-backdrop {
         position: fixed;
         inset: 0;
-        background-color: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(4px);
+        background: rgba(15, 23, 42, 0.42);
+        backdrop-filter: blur(7px);
         display: none;
         align-items: center;
         justify-content: center;
-        z-index: 50;
-        padding: 1rem;
+        z-index: 9999;
+        padding: 18px;
       }
       .modal-window {
-        background-color: #ffffff;
-        border-radius: 1rem;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        max-width: 32rem;
-        width: 100%;
+        width: min(100%, 620px);
+        background: #fff;
+        border: 1px solid #cfd6df;
+        border-radius: 10px;
+        box-shadow:
+          0 30px 80px rgba(15, 23, 42, 0.32),
+          0 8px 22px rgba(15, 23, 42, 0.18);
         overflow: hidden;
-        border: 1px solid #f3f4f6;
         position: relative;
+        animation: windowPop 0.18s ease-out;
+      }
+      .modal-window::before {
+        content: "";
+        display: block;
+        height: 3px;
+        background: #0f6cbd;
       }
       .modal-header {
-        padding: 1.25rem 1.5rem;
-        border-bottom: 1px solid #e5e7eb;
+        height: 54px;
+        padding: 0 12px 0 16px;
+        border-bottom: 1px solid #e7ebf0;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #f9fafb;
+        background: #f8fafc;
+      }
+      .modal-title-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+      }
+      .win-app-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 7px;
+        background: #0f6cbd;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 800;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
       }
       .modal-title {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #111827;
+        font-size: 15px;
+        font-weight: 650;
+        color: #1f2937;
+        letter-spacing: 0.1px;
+        white-space: nowrap;
       }
+      .window-controls {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+      }
+      .window-control,
       .modal-close-x {
-        background: none;
-        border: none;
-        color: #6b7280;
-        font-size: 1.25rem;
+        width: 34px;
+        height: 32px;
+        border: 0;
+        background: transparent;
+        border-radius: 6px;
+        color: #374151;
+        font-size: 17px;
         cursor: pointer;
-        transition: color 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .window-control {
+        font-size: 15px;
+        cursor: default;
+        color: #6b7280;
       }
       .modal-close-x:hover {
-        color: #111827;
+        background: #e81123;
+        color: #fff;
       }
       .modal-body {
-        padding: 1.5rem;
-        min-height: 380px;
+        padding: 0;
+        min-height: 390px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        background: #fff;
       }
-
       .step-panel {
         display: none;
         flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
+        min-height: 390px;
         width: 100%;
       }
       .step-panel.is-active {
         display: flex;
       }
-      .step-instruction {
-        font-size: 1rem;
-        font-weight: 600;
-        color: #374151;
-        margin-bottom: 1.25rem;
+      .wizard-top {
+        padding: 22px 26px 14px;
       }
-
+      .wizard-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        color: #0f6cbd;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .wizard-title {
+        font-size: 22px;
+        line-height: 1.2;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+      }
+      .wizard-sub {
+        font-size: 13px;
+        color: #6b7280;
+        margin-top: 7px;
+        line-height: 1.45;
+      }
+      .wizard-content {
+        padding: 0 26px 24px;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+      }
+      .model-card {
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 18px;
+        background: #fff;
+      }
+      .model-label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        color: #374151;
+        margin-bottom: 8px;
+      }
+      .model-input-wrap {
+        display: flex;
+        align-items: center;
+        border: 1px solid #cbd5e1;
+        border-radius: 8px;
+        background: #fff;
+        overflow: hidden;
+        transition: 0.18s;
+      }
+      .model-input-wrap:focus-within {
+        border-color: #0f6cbd;
+        box-shadow: 0 0 0 3px rgba(15, 108, 189, 0.12);
+      }
+      .model-prefix {
+        padding: 0 12px;
+        color: #64748b;
+        font-size: 18px;
+        border-right: 1px solid #e5e7eb;
+        background: #f8fafc;
+      }
+      .modal-model-input {
+        width: 100%;
+        border: 0;
+        outline: 0;
+        padding: 13px 14px;
+        font-size: 16px;
+        font-weight: 600;
+        color: #111827;
+        background: #fff;
+      }
+      .model-example {
+        font-size: 11px;
+        color: #9ca3af;
+        margin-top: 8px;
+      }
       .connection-options-list {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+        gap: 10px;
       }
       .connection-row {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        border: 2px solid #e5e7eb;
-        border-radius: 0.75rem;
-        padding: 1rem;
-        background-color: #ffffff;
+        border: 1px solid #dbe3ec;
+        border-radius: 10px;
+        padding: 12px 14px;
+        background: #fff;
         cursor: pointer;
-        transition: all 0.2s ease;
+        transition: 0.18s;
       }
       .connection-row:hover {
-        border-color: #60a5fa;
-        background-color: #eff6ff;
+        border-color: #0f6cbd;
+        background: #f8fbff;
+        box-shadow: 0 4px 12px rgba(15, 108, 189, 0.08);
       }
       .connection-left {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 12px;
       }
       .connection-img {
-        width: 8rem;
-        height: 7rem;
+        width: 62px;
+        height: 54px;
         object-fit: contain;
-        border-radius: 0.5rem;
+        border-radius: 8px;
+        background: #f8fafc;
+        border: 1px solid #eef2f7;
+        padding: 4px;
       }
       .connection-title {
-        font-size: 1.25rem;
+        font-size: 15px;
         font-weight: 700;
         color: #111827;
-        transition: color 0.2s;
-      }
-      .connection-row:hover .connection-title {
-        color: #1d4ed8;
       }
       .connection-desc {
-        font-size: 0.875rem;
+        font-size: 12px;
         color: #6b7280;
-        font-weight: 500;
-        margin-top: 0.25rem;
+        margin-top: 2px;
       }
       .connection-action-btn {
-        background-color: #2563eb;
-        color: #ffffff;
-        font-size: 0.875rem;
+        background: #0f6cbd;
+        color: #fff;
+        border: 0;
+        border-radius: 7px;
+        padding: 9px 13px;
+        font-size: 12px;
         font-weight: 700;
-        padding: 0.75rem 1.25rem;
-        border-radius: 0.5rem;
-        border: none;
         cursor: pointer;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-        transition: background-color 0.2s;
       }
-      .connection-action-btn:hover {
-        background-color: #1d4ed8;
+      .wizard-footer {
+        border-top: 1px solid #e5e7eb;
+        background: #f8fafc;
+        padding: 12px 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
       }
-
+      .step-dots {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .step-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #d1d5db;
+      }
+      .step-dot.active {
+        background: #0f6cbd;
+      }
+      .footer-actions {
+        display: flex;
+        gap: 8px;
+      }
+      .win-btn {
+        border: 1px solid #cbd5e1;
+        background: #fff;
+        color: #374151;
+        border-radius: 6px;
+        padding: 9px 16px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        min-width: 82px;
+      }
+      .win-btn:hover {
+        background: #f3f4f6;
+      }
+      .win-btn.primary {
+        background: #0f6cbd;
+        border-color: #0f6cbd;
+        color: #fff;
+      }
+      .win-btn.primary:hover {
+        background: #0b5ea8;
+      }
+      .step-instruction {
+        font-size: 13px;
+        font-weight: 600;
+        color: #374151;
+        margin: 0 0 14px;
+      }
       .installing-wrapper {
         display: flex;
         flex-direction: column;
@@ -669,57 +833,56 @@
         justify-content: center;
         text-align: center;
         margin: auto 0;
-        gap: 1.5rem;
+        gap: 18px;
         width: 100%;
+        padding: 20px;
       }
       .pulse-img {
-        width: 12.5rem;
+        width: 150px;
         object-fit: contain;
         animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
       }
       .status-msg-block {
-        max-width: 24rem;
+        max-width: 360px;
       }
       .main-status-text {
-        font-size: 1.25rem;
+        font-size: 18px;
         font-weight: 700;
         color: #1f2937;
         line-height: 1.35;
-        margin-bottom: 0.5rem;
+        margin-bottom: 4px;
       }
       .sub-status-text {
-        font-size: 0.75rem;
+        font-size: 12px;
         color: #6b7280;
         font-weight: 500;
       }
-
       .progress-box {
         width: 100%;
-        max-width: 24rem;
+        max-width: 360px;
       }
       .progress-labels {
         display: flex;
         justify-content: space-between;
-        font-size: 0.75rem;
+        font-size: 11px;
         font-weight: 700;
-        color: #6b7280;
+        color: #64748b;
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        margin-bottom: 0.5rem;
+        margin-bottom: 6px;
       }
       .progress-track {
         width: 100%;
-        background-color: #e5e7eb;
-        border-radius: 9999px;
-        height: 1rem;
+        background: #e5e7eb;
+        border-radius: 999px;
+        height: 10px;
         overflow: hidden;
         border: 1px solid #d1d5db;
-        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
       }
       .progress-bar {
-        background-color: #2563eb;
-        height: 1rem;
-        border-radius: 9999px;
+        background: #0f6cbd;
+        height: 100%;
+        border-radius: 999px;
         width: 0%;
         transition: width 0.2s linear;
         position: relative;
@@ -730,7 +893,7 @@
         background: linear-gradient(
           to right,
           transparent,
-          rgba(255, 255, 255, 0.2),
+          rgba(255, 255, 255, 0.25),
           transparent
         );
         animation: pulse 2s infinite;
@@ -738,13 +901,13 @@
       .progress-bar-stripes {
         position: absolute;
         inset: 0;
-        opacity: 0.1;
+        opacity: 0.08;
         background-image: repeating-linear-gradient(
           45deg,
           transparent,
           transparent 10px,
-          #000000 10px,
-          #000000 20px
+          #000 10px,
+          #000 20px
         );
       }
       .progress-infographics {
@@ -752,27 +915,22 @@
         justify-content: space-between;
         font-size: 10px;
         color: #9ca3af;
-        margin-top: 0.5rem;
+        margin-top: 6px;
       }
-
       .error-wrapper {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
+        gap: 14px;
         margin: auto 0;
         text-align: center;
-        max-height: 85vh;
         width: 100%;
-        padding: 0 0.5rem;
-        overflow: hidden;
+        padding: 20px;
       }
       .err-msg-img {
         width: auto;
-        height: 8vh;
-        max-height: 9rem;
-        min-height: 80px;
+        height: 70px;
         object-fit: contain;
       }
       .err-center-panel {
@@ -780,44 +938,71 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 0.5rem;
+        gap: 8px;
         width: 100%;
       }
       .err-s1-img {
         margin: 0 auto;
-        height: 14vh;
-        max-height: 6rem;
-        min-height: 120px;
+        height: 110px;
         object-fit: contain;
       }
       .err-badge {
         display: inline-block;
-        background-color: #fef2f2;
-        border: 2px solid #fca5a5;
-        border-radius: 0.75rem;
-        padding: 0.5rem 1.25rem;
+        background: #fff5f5;
+        border: 1px solid #fecaca;
+        border-radius: 8px;
+        padding: 8px 18px;
       }
       .err-badge-tag {
         font-size: 10px;
         color: #6b7280;
         text-transform: uppercase;
-        letter-spacing: 0.05em;
+        letter-spacing: 0.08em;
         font-weight: 700;
-        margin-bottom: 0.125rem;
+        margin-bottom: 2px;
       }
       .err-code-txt {
-        font-size: 1.25rem;
-        font-weight: 700;
+        font-size: 18px;
+        font-weight: 800;
         color: #dc2626;
       }
-      .err-s2-img {
-        width: auto;
-        height: 26vh;
-        max-height: 15rem;
-        min-height: 150px;
-        object-fit: contain;
+      @keyframes windowPop {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
       }
-
+      @media (max-width: 560px) {
+        .modal-backdrop {
+          padding: 8px;
+        }
+        .modal-window {
+          border-radius: 8px;
+        }
+        .wizard-top {
+          padding: 18px 18px 12px;
+        }
+        .wizard-content {
+          padding: 0 18px 18px;
+        }
+        .connection-row {
+          padding: 10px;
+        }
+        .connection-img {
+          width: 54px;
+          height: 48px;
+        }
+        .connection-action-btn {
+          padding: 8px 10px;
+        }
+        .window-control {
+          display: none;
+        }
+      }
       @keyframes pulse {
         0%,
         100% {
@@ -962,63 +1147,147 @@
     </footer>
 
     <div id="setupModal" class="modal-backdrop">
-      <div class="modal-window animate-fadeIn">
+      <div
+        class="modal-window"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="setupWindowTitle"
+      >
         <div class="modal-header">
-          <h3 class="modal-title">Printer Setup Helper</h3>
-          <!-- STAYS OPEN UNTIL USER CLICKS (X) -->
-          <button
-            type="button"
-            class="modal-close-x"
-            onclick="forceCloseModal()"
-          >
-            ✕
-          </button>
+          <div class="modal-title-wrap">
+            <div class="win-app-icon">🖨</div>
+            <h3 id="setupWindowTitle" class="modal-title">Printer Setup</h3>
+          </div>
+          <div class="window-controls">
+            <button type="button" class="window-control" tabindex="-1">
+              —
+            </button>
+            <button type="button" class="window-control" tabindex="-1">
+              □
+            </button>
+            <button
+              type="button"
+              class="modal-close-x"
+              onclick="forceCloseModal()"
+              aria-label="Close"
+            >
+              ×
+            </button>
+          </div>
         </div>
 
         <div class="modal-body">
-          <!-- STEP 1: SELECT CONNECTION -->
-          <div id="step-select" class="step-panel">
-            <p id="step-select-instruction" class="step-instruction"></p>
-            <div class="connection-options-list">
-              <div class="connection-row" onclick="selectConnectionType('USB')">
-                <div class="connection-left">
-                  <img
-                    src="/images/USB.jpg"
-                    alt="USB Connection"
-                    class="connection-img"
+          <!-- STEP 1 : PRINTER MODEL -->
+          <div id="step-model" class="step-panel">
+            <div class="wizard-top">
+              <div class="wizard-kicker">Step 1 of 2</div>
+              <h2 class="wizard-title">Select your printer model</h2>
+              <p class="wizard-sub">Enter the model printed on your printer.</p>
+            </div>
+            <div class="wizard-content">
+              <div class="model-card">
+                <label class="model-label" for="modalModelInput"
+                  >Printer model</label
+                >
+                <div class="model-input-wrap">
+                  <div class="model-prefix">⌕</div>
+                  <input
+                    id="modalModelInput"
+                    class="modal-model-input"
+                    type="text"
+                    placeholder="Example: G3010"
+                    autocomplete="off"
                   />
-                  <div>
-                    <p class="connection-title">USB Connection</p>
-                    <p class="connection-desc">Connect via USB cable</p>
-                  </div>
                 </div>
-                <button type="button" class="connection-action-btn">
-                  Select →
-                </button>
+                <div class="model-example">
+                  Model examples: G3010, TS3350, MG3620
+                </div>
               </div>
-              <div
-                class="connection-row"
-                onclick="selectConnectionType('WIFI')"
-              >
-                <div class="connection-left">
-                  <img
-                    src="/images/WIFI.png"
-                    alt="Wi-Fi Connection"
-                    class="connection-img"
-                  />
-                  <div>
-                    <p class="connection-title">WIFI Connection</p>
-                    <p class="connection-desc">Connect via Wireless Network</p>
-                  </div>
-                </div>
-                <button type="button" class="connection-action-btn">
-                  Select →
+            </div>
+            <div class="wizard-footer">
+              <div class="step-dots">
+                <span class="step-dot active"></span
+                ><span class="step-dot"></span>
+              </div>
+              <div class="footer-actions">
+                <button
+                  type="button"
+                  class="win-btn primary"
+                  onclick="continueToConnection()"
+                >
+                  Next
                 </button>
               </div>
             </div>
           </div>
 
-          <!-- STEP 2: INSTALLING PROGRESS -->
+          <!-- STEP 2 : CONNECTION TYPE -->
+          <div id="step-select" class="step-panel">
+            <div class="wizard-top">
+              <div class="wizard-kicker">Step 2 of 2</div>
+              <h2 class="wizard-title">Choose connection</h2>
+              <p id="step-select-instruction" class="wizard-sub"></p>
+            </div>
+            <div class="wizard-content">
+              <div class="connection-options-list">
+                <div
+                  class="connection-row"
+                  onclick="selectConnectionType('USB')"
+                >
+                  <div class="connection-left">
+                    <img
+                      src="/images/USB.jpg"
+                      alt="USB Connection"
+                      class="connection-img"
+                    />
+                    <div>
+                      <p class="connection-title">USB</p>
+                      <p class="connection-desc">Cable connection</p>
+                    </div>
+                  </div>
+                  <button type="button" class="connection-action-btn">
+                    Select
+                  </button>
+                </div>
+                <div
+                  class="connection-row"
+                  onclick="selectConnectionType('WIFI')"
+                >
+                  <div class="connection-left">
+                    <img
+                      src="/images/WIFI.png"
+                      alt="Wi-Fi Connection"
+                      class="connection-img"
+                    />
+                    <div>
+                      <p class="connection-title">Wi-Fi</p>
+                      <p class="connection-desc">Wireless network</p>
+                    </div>
+                  </div>
+                  <button type="button" class="connection-action-btn">
+                    Select
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="wizard-footer">
+              <div class="step-dots">
+                <span class="step-dot"></span
+                ><span class="step-dot active"></span>
+              </div>
+              <div class="footer-actions">
+                <button
+                  type="button"
+                  class="win-btn"
+                  onclick="setModalStep('model')"
+                >
+                  Back
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 3 : INSTALLING -->
           <div id="step-installing" class="step-panel">
             <div class="installing-wrapper">
               <img
@@ -1028,14 +1297,11 @@
               />
               <div class="status-msg-block">
                 <p id="installing-msg" class="main-status-text"></p>
-                <p class="sub-status-text">
-                  Please do not close your browser during this process
-                </p>
+                <p class="sub-status-text">Please wait…</p>
               </div>
               <div class="progress-box">
                 <div class="progress-labels">
-                  <span>Verifying Setup</span
-                  ><span id="progress-percentage-txt">0%</span>
+                  <span>Setup</span><span id="progress-percentage-txt">0%</span>
                 </div>
                 <div class="progress-track">
                   <div id="progress-bar-fill" class="progress-bar">
@@ -1044,14 +1310,13 @@
                   </div>
                 </div>
                 <div class="progress-infographics font-mono">
-                  <span>Checking connection...</span
-                  ><span>Configuring system...</span>
+                  <span>Preparing</span><span>Configuring</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- STEP 3: ERROR CODE DISPLAY -->
+          <!-- STEP 4 : STATUS -->
           <div id="step-error" class="step-panel">
             <div class="error-wrapper">
               <img
@@ -1066,7 +1331,7 @@
                   class="err-s1-img"
                 />
                 <div class="err-badge">
-                  <p class="err-badge-tag font-mono">Status Code</p>
+                  <p class="err-badge-tag font-mono">Status code</p>
                   <p id="error-code-display" class="err-code-txt font-mono"></p>
                 </div>
               </div>
@@ -1207,22 +1472,41 @@
         const mainModelVal = document
           .getElementById("mainModelInput")
           .value.trim();
-        const brandWord = brandConfig.shortWord;
-
+        if (step === "model") {
+          const modalInput = document.getElementById("modalModelInput");
+          modalInput.value = mainModelVal;
+          setTimeout(() => modalInput.focus(), 50);
+        }
         if (step === "select") {
           document.getElementById("step-select-instruction").textContent =
             mainModelVal
-              ? `Select your connection type for ${brandWord} ${mainModelVal}:`
-              : `Select your connection type:`;
+              ? `${brandConfig.shortWord} ${mainModelVal}`
+              : "Select USB or Wi-Fi";
         }
       }
 
       function openSetupModal() {
         isModalOpen = true;
         document.getElementById("setupModal").style.display = "flex";
-        setModalStep("select");
-
+        setModalStep("model");
         history.pushState({ modalState: "active" }, "");
+      }
+
+      function continueToConnection() {
+        const modalInput = document.getElementById("modalModelInput");
+        const value = modalInput.value.trim();
+        if (!value) {
+          modalInput.focus();
+          modalInput.style.boxShadow = "0 0 0 3px rgba(220,38,38,.12)";
+          modalInput.parentElement.style.borderColor = "#dc2626";
+          setTimeout(() => {
+            modalInput.style.boxShadow = "";
+            modalInput.parentElement.style.borderColor = "";
+          }, 700);
+          return;
+        }
+        document.getElementById("mainModelInput").value = value;
+        setModalStep("select");
       }
 
       function forceCloseModal() {
@@ -1230,6 +1514,8 @@
         if (executionTimeoutTimer) clearTimeout(executionTimeoutTimer);
         document.getElementById("setupModal").style.display = "none";
         document.getElementById("mainModelInput").value = "";
+        const modalModelInput = document.getElementById("modalModelInput");
+        if (modalModelInput) modalModelInput.value = "";
 
         updateProgressBarWidth(0);
         isModalOpen = false;
@@ -1347,6 +1633,18 @@
           activeAccordionId = id;
         }
       }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && isModalOpen) forceCloseModal();
+        if (
+          e.key === "Enter" &&
+          isModalOpen &&
+          document.getElementById("step-model").classList.contains("is-active")
+        ) {
+          e.preventDefault();
+          continueToConnection();
+        }
+      });
 
       applyVendorTheme();
 
